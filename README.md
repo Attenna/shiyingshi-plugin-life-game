@@ -10,6 +10,10 @@
 - 推演在独立棋盘上进行：父节点裁切、组件移出屏幕、缩放都不影响整张棋盘的计算；
 - 渲染链支持任意层 `ShaderMaterial`（SubViewport 后处理链），默认自带「细胞调色板 + 泛光」两层。
 
+演示（900×900，96×96 随机初始，10 代/秒）：
+
+![生命游戏演示](_docs/preview.png)
+
 安装：把本仓库内容放到 `{exe}/mods/life_game/`。演示场景在控制面板的直播场景列表里
 显示为「生命游戏（装饰模板）」，也可以直接：
 
@@ -33,6 +37,10 @@ godot_console.exe --path <core> -- --scene life_game_demo
 4. 需要改视觉时，改 `life_game/shaders/` 里的 shader，或往 `shader_layers` 数组追加自己的 ShaderMaterial。
 
 组件不依赖内核服务、不依赖其它插件，也不使用 `class_name`，复制多份不会冲突。
+
+任意尺寸（24×24 / 48×48 / 16×16，放在同一场景里的三个实例）：
+
+![小尺寸多实例](_docs/small-preview.png)
 
 最小示例：
 
