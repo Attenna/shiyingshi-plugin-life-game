@@ -1,0 +1,23 @@
+{
+    "id": "life_game",
+    "name": "生命游戏",
+    "version": "1.0.0",
+    "author": "演播室2",
+    "description": "可嵌入的康威生命游戏装饰组件：X×X 格点、可调初始状态与推演速度、可叠加多层 shader",
+    "api_version": ">=2.0.0 <3.0.0",
+    "dependencies": [],
+    "load_priority": 0,
+    "hot_reload": { "enabled": true, "mode": "auto", "debounce_ms": 300 },
+    "watch": ["scenes/", "scripts/", "life_game/"],
+    "provides": {
+        "scenes": [
+            {
+                "id": "life_game_demo",
+                "name": "生命游戏（装饰模板）",
+                "type": "live",
+                "scene": "scenes/life_game_demo.tscn",
+                "description": "生命游戏组件演示：方形棋盘、Gosper 滑翔机枪、两层 shader"
+            }
+        ]
+    }
+}

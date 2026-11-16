@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="test_small_preview.gd" id="1_preview"]
+[ext_resource type="PackedScene" path="../life_game/life_game.tscn" id="2_life"]
+
+[node name="SmallPreview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_preview")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.02, 0.03, 0.045, 1)
+
+[node name="LifeA" parent="." instance=ExtResource("2_life")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 160.0
+offset_right = 280.0
+offset_bottom = 320.0
+grid_size = 24
+steps_per_second = 6.0
+random_seed = 101
+
+[node name="LabelA" type="Label" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 328.0
+offset_right = 400.0
+offset_bottom = 352.0
+theme_override_colors/font_color = Color(0.45, 0.65, 0.68, 0.9)
+theme_override_font_sizes/font_size = 14
+text = "24×24 · 160 px"
+
+[node name="LifeB" parent="." instance=ExtResource("2_life")]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 160.0
+offset_right = 660.0
+offset_bottom = 400.0
+grid_size = 48
+steps_per_second = 12.0
+random_seed = 202
+
+[node name="LabelB" type="Label" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 408.0
+offset_right = 700.0
+offset_bottom = 432.0
+theme_override_colors/font_color = Color(0.45, 0.65, 0.68, 0.9)
+theme_override_font_sizes/font_size = 14
+text = "48×48 · 240 px"
+
+[node name="LifeC" parent="." instance=ExtResource("2_life")]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 160.0
+offset_right = 920.0
+offset_bottom = 280.0
+grid_size = 16
+steps_per_second = 5.0
+random_seed = 303
+
+[node name="LabelC" type="Label" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 288.0
+offset_right = 1000.0
+offset_bottom = 312.0
+theme_override_colors/font_color = Color(0.45, 0.65, 0.68, 0.9)
+theme_override_font_sizes/font_size = 14
+text = "16×16 · 120 px"
