@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="life_game.gd" id="1_life"]
+[ext_resource type="Shader" path="shaders/life_cells.gdshader" id="2_cells"]
+[ext_resource type="Shader" path="shaders/life_glow.gdshader" id="3_glow"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cells"]
+shader = ExtResource("2_cells")
+shader_parameter/alive_color = Color(0.32, 0.95, 0.82, 1)
+shader_parameter/dead_color = Color(0.02, 0.05, 0.07, 0)
+shader_parameter/cell_inset = 0.14
+shader_parameter/cell_roundness = 0.12
+shader_parameter/edge_softness = 1.0
+shader_parameter/grid_size = Vector2(64, 64)
+shader_parameter/display_size = Vector2(320, 320)
+shader_parameter/generation = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glow"]
+shader = ExtResource("3_glow")
+shader_parameter/bloom_strength = 0.4
+shader_parameter/bloom_cells = 0.35
+shader_parameter/bloom_tint = Color(0.4, 0.9, 1, 1)
+shader_parameter/grid_size = Vector2(64, 64)
+shader_parameter/display_size = Vector2(320, 320)
+shader_parameter/generation = 0.0
+
+[node name="LifeGame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 320.0
+mouse_filter = 2
+script = ExtResource("1_life")
+shader_layers = Array[ShaderMaterial]([SubResource("ShaderMaterial_cells"), SubResource("ShaderMaterial_glow")])
+
+[node name="BaseViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+size = Vector2i(320, 320)
+render_target_update_mode = 4
+transparent_bg = true
+
+[node name="Mask" type="TextureRect" parent="BaseViewport"]
+unique_name_in_owner = true
+offset_right = 320.0
+offset_bottom = 320.0
+mouse_filter = 2
+texture_filter = 1
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Output" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture_filter = 2
+expand_mode = 1
+stretch_mode = 0
